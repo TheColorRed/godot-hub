@@ -1,0 +1,9 @@
+<mat-dialog-content>
+  The selected location is not a Godot project.
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div fxLayout="row" fxFill fxLayoutAlign="flex-end center" fxLayoutGap="5px">
+    <button mat-flat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button mat-dialog-close color="accent" (click)="tryAgain.next()">Locate</button>
+  </div>
+</mat-dialog-actions>

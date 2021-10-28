@@ -1,0 +1,10 @@
+@import '../../../styles.scss';
+
+button.main-option {
+  border-radius: 4px 0 0 4px;
+  border-right: solid 1px map-get($godot-hub-accent, A100);
+}
+
+button.extra-options {
+  border-radius: 0 4px 4px 0;
+}

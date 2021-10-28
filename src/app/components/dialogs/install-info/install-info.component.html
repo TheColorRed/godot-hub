@@ -1,0 +1,21 @@
+<div mat-dialog-title>
+  <app-dialog-header [header]="'Godot Editor '+version.version"></app-dialog-header>
+</div>
+
+<mat-dialog-content>
+  <div>
+    <markdown>{{version.release.body}}</markdown>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <div fxLayout="row" fxFill fxLayoutAlign="space-between center">
+    <div fxLayoutAlign="flex-start center" fxLayoutGap="10px">
+      <img avatar [src]="version.release.author.avatar_url" alt="Avatar">
+      <a [href]="version.release.author.html_url">{{version.release.author.login}}</a>
+    </div>
+    <div fxLayout="row" fxLayoutGap="5px">
+      <release-reaction *ngFor="let reaction of reactions" [reaction]="reaction"></release-reaction>
+    </div>
+  </div>
+</mat-dialog-actions>

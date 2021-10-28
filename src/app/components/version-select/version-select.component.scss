@@ -1,0 +1,11 @@
+@import '../../../styles.scss';
+
+.version {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  &.selected {
+    background-color: lighten($color: map-get($godot-hub-accent, 500), $amount: 5);
+  }
+}

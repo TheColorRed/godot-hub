@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "allowJs": true,
+    "target": "ESNext",
+    "module": "CommonJS",
+  },
+  "files": [
+    "../../global.d.ts",
+    "./index.js"
+  ],
+  "exclude": [
+    "./dist/**/*"
+  ]
+}

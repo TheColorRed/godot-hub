@@ -1,0 +1,16 @@
+@import '../theme/primary';
+@import '../theme/secondary';
+
+.main {
+  max-height: 100vh;
+  overflow: hidden;
+  & > .nav {
+    padding: 15px;
+  }
+  & > .content {
+    background-color: map-get($primary, 500);
+    color: #fff;
+    overflow: auto;
+    height: 100vh;
+  }
+}

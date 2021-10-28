@@ -1,0 +1,15 @@
+.content-body {
+  & > div {
+    padding: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+.search {
+  padding: 0 24px;
+}
+
+.icon-display {
+  transform: scale(0.8);
+}

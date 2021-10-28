@@ -1,1 +1,145 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+@import './theme/primary';
+@import './theme/secondary';
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$godot-hub-primary: mat.define-palette($primary);
+$godot-hub-accent: mat.define-palette($secondary, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$godot-hub-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$godot-hub-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $godot-hub-primary,
+      accent: $godot-hub-accent,
+      warn: $godot-hub-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($godot-hub-theme);
+
 /* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  user-select: none;
+}
+html,
+body {
+  height: 100%;
+  background-color: map-get($godot-hub-accent, 500);
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 100 !important;
+}
+
+.primary-background {
+  background-color: map-get($godot-hub-primary, 500) !important;
+  &.hover:hover {
+    background-color: lighten($color: map-get($godot-hub-primary, 500), $amount: 5) !important;
+  }
+}
+
+.accent-background {
+  background-color: map-get($godot-hub-accent, 500) !important;
+  &.hover:hover {
+    background-color: lighten($color: map-get($godot-hub-accent, 500), $amount: 5) !important;
+  }
+}
+
+.primary {
+  color: map-get($godot-hub-primary, 500) !important;
+}
+
+.accent {
+  color: map-get($godot-hub-accent, 500) !important;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.gray-text {
+  color: darken($color: #ffffff, $amount: 50);
+}
+
+a {
+  color: rgb(0, 217, 255) !important;
+  // color: rgb(0, 110, 255) !important;
+}
+
+.content-body {
+  padding: 24px;
+}
+
+[mat-dialog-close] {
+  cursor: pointer;
+}
+
+mat-dialog-container {
+  background-color: map-get($godot-hub-accent, 500) !important;
+  border: solid 1px map-get($godot-hub-primary, 400);
+}
+.mat-tab-label-active {
+  opacity: 1 !important;
+}
+
+.nav-list {
+  &.mat-list-base {
+    padding-top: 0;
+  }
+  mat-list-option {
+    border-radius: 5px;
+    &.mat-list-single-selected-option {
+      background-color: map-get($godot-hub-primary, 500);
+    }
+    &:not(.mat-list-single-selected-option) {
+      color: darken($color: #ffffff, $amount: 50);
+    }
+
+    .mat-ripple {
+      border-radius: 5px;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 18px;
+}
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-thumb {
+  background-color: map-get($godot-hub-primary, 400);
+  border-radius: 14px;
+  width: 7px;
+  min-height: 20px;
+  border: 6px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}

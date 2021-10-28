@@ -1,0 +1,9 @@
+{
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.format.semicolons": "remove",
+  "cSpell.words": [
+    "godotengine",
+    "jszip",
+    "Katex"
+  ]
+}

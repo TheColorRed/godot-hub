@@ -1,0 +1,9 @@
+<div [ngClass]="{
+  'primary-background': color==='primary',
+  'accent-background': color==='accent'
+}" fxLayout="row" fxLayoutAlign="flex-start center" class="input-wrapper primary-background">
+  <div fxFlex="0 1">
+    <input class="input" [(ngModel)]="value" [name]="name" [placeholder]="placeholder">
+  </div>
+  <ng-content select="[input-action]"></ng-content>
+</div>

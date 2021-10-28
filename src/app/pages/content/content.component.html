@@ -1,0 +1,6 @@
+<ng-container [ngSwitch]="current.id">
+  <app-installs *ngSwitchCase="'installs'"></app-installs>
+  <app-projects *ngSwitchCase="'projects'"></app-projects>
+  <app-community *ngSwitchCase="'community'"></app-community>
+  <app-learn *ngSwitchCase="'learn'"></app-learn>
+</ng-container>

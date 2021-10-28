@@ -1,0 +1,25 @@
+<div fxLayout="column">
+  <div fxLayout="column" [padding-bottom]="false" content-header>
+    <h1>Community</h1>
+    <mat-tab-group animationDuration="0" color="accent" (selectedTabChange)="setTabContent($event)">
+      <mat-tab label="Help" id="help"></mat-tab>
+      <mat-tab label="Social"></mat-tab>
+      <mat-tab label="Development"></mat-tab>
+    </mat-tab-group>
+  </div>
+  <div main-content>
+    <div fxLayout="column" fxLayoutGap="10px" class="content-body">
+      <div class="community accent-background" *ngFor="let community of display">
+        <div fxLayout="column" fxLayoutGap="20px">
+          <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="flex-start center">
+            <h2>{{community.name}}</h2>
+          </div>
+          <p>{{community.descr}}</p>
+          <div fxLayoutAlign="flex-end">
+            <a mat-button [href]="community.link">Link <mat-icon>launch</mat-icon></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

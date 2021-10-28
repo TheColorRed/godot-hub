@@ -1,0 +1,36 @@
+<div mat-dialog-title>
+  <app-dialog-header header="Install Godot Editor"></app-dialog-header>
+  <mat-tab-group color="accent" [animationDuration]="0" [disableRipple]="true" (selectedTabChange)="loadTabData($event)">
+    <mat-tab label="Stable Releases"></mat-tab>
+    <mat-tab label="Pre-Releases"> </mat-tab>
+    <mat-tab label="Archive"></mat-tab>
+  </mat-tab-group>
+</div>
+
+<mat-dialog-content>
+  <div class="install-dialog-body">
+    <div fxLayout="column" fxLayoutGap="24px">
+      <div *ngFor="let installGroup of installable">
+        <div>
+          {{installGroup.label}}
+        </div>
+        <div fxLayout="column">
+          <div #versionRow *ngFor="let version of installGroup.installable" class="install-list-item primary-background" fxLayout="row">
+            <div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px">
+              <span>{{version.current.version}}</span>
+              <div>
+                <release-tag [version]="version.current"></release-tag>
+              </div>
+            </div>
+            <div fxFlex="1 0" fxLayoutAlign="flex-end center">
+              <app-button-menu [mainDisabled]="renderId|isInstalled:version.current" (buttonClicked)="installVersion($event)">
+                <button-menu-label>Install</button-menu-label>
+                <button-menu-item [disabled]="renderId|isInstalled:item" *ngFor="let item of version.all" [value]="item">{{item}}</button-menu-item>
+              </app-button-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

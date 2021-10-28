@@ -1,0 +1,14 @@
+<div fxLayout="row">
+  <button [disabled]="mainDisabled||disabled" fxFlex="0 1" mat-flat-button color="accent" class="main-option" (click)="emitValue()">
+    <ng-content select="button-menu-label"></ng-content>
+  </button>
+  <button [disabled]="subDisabled||disabled" fxFlex="20px" fxLayoutAlign="center center" mat-flat-button color="accent" class="extra-options" [matMenuTriggerFor]="menu">
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+</div>
+
+<mat-menu #menu="matMenu" xPosition="before">
+  <button [disabled]="itm.disabled" mat-menu-item *ngFor="let itm of buttonMenuItem" (click)="emitNewValue(itm)">
+    <ng-container *ngTemplateOutlet="itm.template"></ng-container>
+  </button>
+</mat-menu>

@@ -1,0 +1,5 @@
+@use '~@angular/material' as mat;
+
+@mixin background-accent {
+  background-color: mat.get-color-from-palette($godot-hub-theme, 'darker');
+}

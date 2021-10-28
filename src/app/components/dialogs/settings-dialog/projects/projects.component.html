@@ -1,0 +1,7 @@
+<h3>Project Location</h3>
+<p class="gray-text">Select a location for new projects. Existing projects will not be affected.</p>
+<app-input [(ngModel)]="location" name="project-location">
+  <button input-action mat-icon-button (click)="openFolderExplorer()">
+    <mat-icon>folder</mat-icon>
+  </button>
+</app-input>

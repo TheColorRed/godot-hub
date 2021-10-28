@@ -1,0 +1,25 @@
+<div mat-dialog-title>
+  <app-dialog-header header="Command Line Arguments"></app-dialog-header>
+</div>
+
+<mat-dialog-content>
+  <div fxLayout="column" fxLayoutGap="5px">
+    <textarea rows="14" class="args primary-background" [(ngModel)]="project.args"></textarea>
+    <p>Example: <code class="primary-background">--maximized -t</code></p>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
+    <div>
+      <a href="https://docs.godotengine.org/en/stable/getting_started/editor/command_line_tutorial.html" mat-button>
+        <mat-icon>launch</mat-icon>
+        <span style="padding-left: 10px">Command line arguments documentation</span>
+      </a>
+    </div>
+    <div fxLayout="row" fxLayoutGap="5px">
+      <button mat-flat-button mat-dialog-close>Cancel</button>
+      <button mat-flat-button mat-dialog-close color="accent" (click)="saveArguments()">Save</button>
+    </div>
+  </div>
+</mat-dialog-actions>

@@ -1,0 +1,58 @@
+<div fxLayout="column" fxLayoutGap="20px">
+  <div fxLayout="row" content-header fxLayoutAlign="space-between center">
+    <h1>Projects</h1>
+    <div fxLayout="row" fxLayoutGap="5px">
+      <button mat-flat-button (click)="findProject()">Locate</button>
+      <button mat-flat-button color="accent" (click)="newProject()">New Project</button>
+    </div>
+  </div>
+  <div main-content>
+    <div class="search">
+      <app-input placeholder="Filter Projects (Name, Location, Version, etc.)" color="accent" [ngModel]="query" (ngModelChange)="search($event)">
+        <mat-icon input-action>search</mat-icon>
+      </app-input>
+    </div>
+    <div fxLayout="column" fxLayoutGap="5px" class="content-body">
+      <div *ngFor="let project of projects" class="accent-background hover clickable">
+        <div fxLayout="row" fxLayoutAlign="space-between center" (click)="openProject(project)">
+          <div fxLayout="column">
+            <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="flex-start center">
+              <div>{{project.name}}</div>
+              <mono-tag [version]="project"></mono-tag>
+            </div>
+            <span class="gray-text">{{project.location|formatPath|async}}</span>
+          </div>
+          <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="flex-end center">
+            <div>
+              <button mat-flat-button (click)="selectVersion($event,project)" fxLayout="row" fxLayoutAlign="center center">
+              {{(project.godot.version|isInstalled:project) ? project.godot.version : 'Select'}}
+              <mat-icon>swap_horiz</mat-icon>
+              </button>
+            </div>
+            <div>
+              <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{project}" (click)="$event.stopPropagation()">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<mat-menu #menu="matMenu" xPosition="before">
+  <ng-template matMenuContent let-project="project">
+    <button mat-menu-item (click)="showInExplorer(project)">
+      <mat-icon class="material-icons-outlined">source</mat-icon> Show in Explorer
+    </button>
+    <button mat-menu-item (click)="showCmdArgsDialog(project)">
+      <mat-icon class="material-icons-outlined">code</mat-icon> Add Command Line Arguments
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="removeProject(project)">
+      <mat-icon>remove_circle_outline</mat-icon> Remove Project
+    </button>
+  </ng-template>
+</mat-menu>

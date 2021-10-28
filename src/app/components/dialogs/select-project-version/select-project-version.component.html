@@ -1,0 +1,24 @@
+<div mat-dialog-title>
+  <app-dialog-header header="Select Editor Version"></app-dialog-header>
+</div>
+
+<mat-dialog-content>
+  <div fxLayout="column">
+    <h3>{{data.name}}</h3>
+    <div fxLayout="column">
+      <app-version-select [versions]="installed" [current]="current" (versionChanged)="current=$event.project"></app-version-select>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="gray-text">
+      <strong>Note:</strong> Make sure to back up your project when switching between versions.
+    </div>
+    <div>
+      <button mat-flat-button mat-dialog-close>Cancel</button>
+      <button mat-flat-button color="accent" mat-dialog-close (click)="acceptVersion()">Select</button>
+    </div>
+  </div>
+</mat-dialog-actions>

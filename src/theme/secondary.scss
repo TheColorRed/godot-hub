@@ -1,0 +1,33 @@
+/* For use in src/lib/core/theming/_palette.scss */
+$secondary: (
+    50 : #e7e7ea,
+    100 : #c2c4ca,
+    200 : #999da7,
+    300 : #707684,
+    400 : #525869,
+    500 : #333b4f,
+    600 : #2e3548,
+    700 : #272d3f,
+    800 : #202636,
+    900 : #141926,
+    A100 : #6989ff,
+    A200 : #3661ff,
+    A400 : #0339ff,
+    A700 : #0032e9,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);

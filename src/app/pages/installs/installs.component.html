@@ -1,0 +1,61 @@
+<div fxLayout="column" fxLayoutGap="20px">
+  <div fxLayout="row" content-header>
+    <div fxFlex="0 1" fxLayoutAlign="flex-start center">
+      <h1>Installs</h1>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="flex-end center">
+      <button mat-flat-button color="accent" (click)="openInstaller()">Install Editor</button>
+    </div>
+  </div>
+  <div main-content>
+    <mat-tab-group animationDuration="0" color="accent">
+      <mat-tab label="All">
+        <ng-container *ngTemplateOutlet="installTpl; context:{installs:allInstalls}"></ng-container>
+      </mat-tab>
+      <mat-tab label="Stable releases">
+        <ng-container *ngTemplateOutlet="installTpl; context:{installs:stableInstalls}"></ng-container>
+      </mat-tab>
+      <mat-tab label="Mono releases">
+        <ng-container *ngTemplateOutlet="installTpl; context:{installs:monoInstalls}"></ng-container>
+      </mat-tab>
+      <mat-tab label="Pre-releases">
+        <ng-container *ngTemplateOutlet="installTpl; context:{installs:preInstalls}"></ng-container>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+
+<ng-template #installTpl let-installs="installs">
+  <div fxLayout="column" fxLayoutGap="5px" class="installs">
+    <div *ngFor="let install of installs" class="accent-background hover clickable" (click)="showDetails(install)">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="column">
+          <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="flex-start center">
+            <div>{{install.version}}</div>
+            <release-tag [version]="install"></release-tag>
+            <os-tag [version]="install"></os-tag>
+            <mono-tag [version]="install"></mono-tag>
+          </div>
+          <span class="gray-text">{{install.installLocation|formatPath|async}}</span>
+        </div>
+        <div>
+          <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{install:install}" (click)="$event.stopPropagation()">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<mat-menu #menu="matMenu" xPosition="before">
+  <ng-template matMenuContent let-install="install">
+    <button mat-menu-item (click)="showInFolder(install)">
+      <mat-icon class="material-icons-outlined">source</mat-icon> Show in Explorer
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="uninstall(install)">
+    <mat-icon>delete</mat-icon> Uninstall
+  </button>
+  </ng-template>
+</mat-menu>

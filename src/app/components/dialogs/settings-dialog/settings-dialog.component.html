@@ -1,0 +1,15 @@
+<app-dialog-header mat-dialog-title header="Settings"></app-dialog-header>
+
+<mat-dialog-content>
+  <div fxLayout="row" fxLayoutGap="50px" class="nav">
+    <mat-selection-list #setting [multiple]="false" fxFlex="200px" class="nav-list">
+      <mat-list-option value="projects" [selected]="true">Projects</mat-list-option>
+      <mat-list-option value="installs">Installs</mat-list-option>
+    </mat-selection-list>
+
+    <div [ngSwitch]="setting.selectedOptions.selected[0].value">
+      <app-settings-projects *ngSwitchCase="'projects'"></app-settings-projects>
+      <app-settings-installs *ngSwitchCase="'installs'"></app-settings-installs>
+    </div>
+  </div>
+</mat-dialog-content>

@@ -1,0 +1,22 @@
+<div *ngIf="versions.length===0">
+  No editors are installed. <a href="" (click)="installEditor($event)">Install Editor</a>.
+</div>
+
+<div *ngFor="let version of versions" fxLayout="row" fxLayoutAlign="flex-start center" class="version" [ngClass]="{
+          selected: version.version === current?.godot?.version && version.isMono === current?.godot?.isMono
+        }" (click)="selectVersion(version)">
+  <div fxFlex="40px" fxLayoutAlign="flex-start center">
+    <ng-container *ngIf="version.version === current?.godot?.version && version.isMono === current?.godot?.isMono; else unchecked">
+      <mat-icon>radio_button_checked</mat-icon>
+    </ng-container>
+    <ng-template #unchecked>
+      <mat-icon>radio_button_unchecked</mat-icon>
+    </ng-template>
+  </div>
+  <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="flex-start center">
+    <span>{{version.version}}</span>
+    <release-tag [version]="version"></release-tag>
+    <os-tag [version]="version"></os-tag>
+    <mono-tag [version]="version"></mono-tag>
+  </div>
+</div>

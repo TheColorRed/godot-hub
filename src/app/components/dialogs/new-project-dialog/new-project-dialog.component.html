@@ -1,0 +1,28 @@
+<div mat-dialog-title>
+  <app-dialog-header header="New Project"></app-dialog-header>
+</div>
+
+<mat-dialog-content>
+  <div fxLayout="column" fxLayoutGap="40px">
+    <app-input placeholder="Project Name" [(ngModel)]="name"></app-input>
+    <div>
+      <h3>Editor version</h3>
+      <app-version-select [versions]="installed" (versionChanged)="version=$event.version"></app-version-select>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <div fxLayout="row" fxFill fxLayoutAlign="space-between center">
+    <div>
+      <div *ngIf="exists" fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px">
+        <mat-icon color="warn">report_problem</mat-icon>
+        <span class="gray-text">A project with this name already exists.</span>
+      </div>
+    </div>
+    <div>
+      <button mat-flat-button mat-dialog-close>Cancel</button>
+      <button mat-flat-button color="accent" (click)="createProject()" [disabled]="name.trim().length===0 || version===undefined">Create</button>
+    </div>
+  </div>
+</mat-dialog-actions>

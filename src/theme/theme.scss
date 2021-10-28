@@ -1,0 +1,7 @@
+@use '~@angular/material' as mat;
+
+@import './primary.scss';
+@import './secondary.scss';
+
+$primary-palette: mat.define-palette($primary);
+$secondary-palette: mat.define-palette($secondary);

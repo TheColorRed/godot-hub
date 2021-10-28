@@ -1,0 +1,20 @@
+<div mat-dialog-title>
+  <app-dialog-header header="Are you sure?"></app-dialog-header>
+</div>
+
+<mat-dialog-content>
+  <p>Performing this action will remove "{{project.name}}".</p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px">
+      <mat-icon color="warn">report_problem</mat-icon>
+      <span class="gray-text">Removing this does not delete the project on disk.</span>
+    </div>
+    <div>
+      <button mat-flat-button mat-dialog-close>Cancel</button>
+      <button mat-flat-button mat-dialog-close color="accent" (click)="confirmed.emit()">Remove</button>
+    </div>
+  </div>
+</mat-dialog-actions>
