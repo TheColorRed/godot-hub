@@ -1,12 +1,13 @@
 {
   "name": "godot-hub",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha",
   "scripts": {
     "ng": "ng",
     "start": "concurrently -k \"ng serve\" \"npm:electron\"",
     "electron": "wait-on http://localhost:4200 && \"./node_modules/.bin/electron\" --trace-warnings \"src/server\"",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build:prod": "ng build --configuration=production",
+    "watch": "ng build --watch --configuration=development",
     "test": "ng test"
   },
   "private": true,

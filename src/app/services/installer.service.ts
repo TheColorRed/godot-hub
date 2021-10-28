@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core'
-import { timer } from 'rxjs'
-import { Subject } from 'rxjs/internal/Subject'
+import { Subject, timer } from 'rxjs'
 import { AssetDeleteInfo } from '../../../global'
 import { Unzip } from '../classes/unzip'
 

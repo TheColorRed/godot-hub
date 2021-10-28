@@ -1,4 +1,6 @@
-@import '../../../styles.scss';
+@use '~@angular/material' as mat;
+@import '../../../theme/secondary';
+$godot-hub-accent: mat.define-palette($secondary, A200, A100, A400);
 
 button.main-option {
   border-radius: 4px 0 0 4px;

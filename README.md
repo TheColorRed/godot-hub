@@ -1,27 +1,34 @@
-# GodotHub
+# Godot Hub
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
+**Note:** Currently there isn't a native application, and needs to be run through the command line. The application will come in due time.
 
-## Development server
+Godot Hub gives the ability to:
+* Manage Godot installs
+* Manage Godot projects
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![Projects](images/projects.png)
 
-## Code scaffolding
+## Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+These applications are required to download and execute the application. It is recommended to install the latest versions of each, especially Nodejs and NPM.
 
-## Build
+* [Git](https://git-scm.com/) &ndash; Used to clone Godot Hub from Github.
+* [Nodejs](https://nodejs.org/en/) &ndash; Required to run the application.
+* [NPM](https://www.npmjs.com/) &ndash; Required to download the modules for the application (This is shipped with node).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation
 
-## Running unit tests
+This will install all the tools necessary to run the application.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```sh
+$ git clone git@github.com:TheColorRed/godot-hub.git
+$ npm install
+```
 
-## Running end-to-end tests
+## Startup
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Once everything is installed from above, this command can be executed to start the application.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```sh
+$ npm start
+```

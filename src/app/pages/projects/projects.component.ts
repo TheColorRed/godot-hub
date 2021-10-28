@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { Subscription } from 'rxjs'
-import { first } from 'rxjs/internal/operators/first'
+import { first } from 'rxjs/operators'
 import { CmdArgsDialogComponent } from '../../components/dialogs/cmd-args-dialog/cmd-args-dialog.component'
 import { NewProjectDialogComponent } from '../../components/dialogs/new-project-dialog/new-project-dialog.component'
 import { ProjectLocateErrorDialogComponent } from '../../components/dialogs/project-locate-error/project-locate-error.component'
