@@ -9,6 +9,7 @@ assignees:
   - vyelala
 body:
   - type: markdown
+    value: ""
     id: description
     attributes:
       label: Describe the bug
