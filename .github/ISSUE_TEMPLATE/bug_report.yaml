@@ -1,0 +1,116 @@
+Skip to content
+ Enterprise
+Search or jump to…
+Pull requests
+Issues
+Explore
+ 
+@rnaddy 
+ecp
+/
+user-management-cds-ui
+Public
+7
+2
+0
+Code
+Issues
+12
+Pull requests
+1
+Discussions
+Projects
+Wiki
+Security
+12
+Insights
+Settings
+user-management-cds-ui/.github/ISSUE_TEMPLATE/bug_report.yaml
+@rnaddy
+rnaddy Create bug_report.yaml
+…
+Latest commit 813df01 18 minutes ago
+ History
+ 1 contributor
+We found potential security vulnerabilities in your dependencies.
+You can see this message because you have been granted access to Dependabot alerts for this repository.
+
+ 69 lines (69 sloc)  1.53 KB
+   
+name: Bug report \U0001F41B
+description: Create a report to help us improve.
+title: "[BUG]: "
+labels: [bug]
+assignees:
+  - chipp100,
+  - dsolank1
+  - rnaddy
+  - vyelala
+body:
+  - type: markdown
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Steps to reproduce the behavior
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: Github Repo
+  - type: input
+    id: branch
+    attributes:
+      label: Branch name
+  - type: checkboxes
+    id: environments
+    validations:
+      required: true
+    attributes:
+      label: Environments affected
+      options:
+       - label: dev
+       - label: test
+       - label: stage
+       - label: trn
+       - label: perf
+       - label: prod
+  - type: input
+    id: os
+    attributes:
+      label: Operating system and version
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Broser and version
+    validations:
+      required: true
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here.
+© 2022 GitHub, Inc.
+Help
+Support
+API
+Training
+Blog
+About
+GitHub Enterprise Server 3.3.4
