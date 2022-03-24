@@ -8,35 +8,31 @@ assignees:
   - rnaddy
   - vyelala
 body:
-  - type: markdown
+  - type: textarea
     attributes:
-      value: "A clear and concise description of what the bug is."
+      label: Current behavior
+      description: A clear and concise description of what the bug is.
     validations:
       required: true
   - type: textarea
-    id: reproduction
-    attributes:
-      label: Steps to reproduce
-      description: Steps to reproduce the behavior
-    validations:
-      required: true
-  - type: textarea
-    id: expected
     attributes:
       label: Expected behavior
       description: A clear and concise description of what you expected to happen.
     validations:
       required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: Steps to reproduce the behavior
+    validations:
+      required: true
   - type: input
-    id: repo
     attributes:
       label: Github Repo
   - type: input
-    id: branch
     attributes:
       label: Branch name
   - type: checkboxes
-    id: environments
     validations:
       required: true
     attributes:
@@ -49,19 +45,16 @@ body:
        - label: perf
        - label: prod
   - type: input
-    id: os
     attributes:
       label: Operating system and version
     validations:
       required: true
   - type: input
-    id: browser
     attributes:
       label: Broser and version
     validations:
       required: true
   - type: textarea
-    id: additional_context
     attributes:
       label: Additional context
       description: Add any other context about the problem here.
