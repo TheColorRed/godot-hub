@@ -10,7 +10,7 @@ assignees:
 body:
   - type: markdown
     attributes:
-      value: Describe the bug
+      placeholder: Describe the bug
       description: A clear and concise description of what the bug is.
     validations:
       required: true
