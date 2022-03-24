@@ -9,10 +9,8 @@ assignees:
   - vyelala
 body:
   - type: markdown
-    value: ""
-    id: description
     attributes:
-      label: Describe the bug
+      value: Describe the bug
       description: A clear and concise description of what the bug is.
     validations:
       required: true
